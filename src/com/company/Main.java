@@ -20,9 +20,18 @@ public class Main {
         };
     }
     public static void validEvent(Event event){
-//        if (event.title.equals("") || event.title == null || event.age == null)
+       if (event.title == null || event.releaseYear == 0 || event.age == 0){
+           throw new RuntimeException("Все поля должны быть заполнены");
+       }
+
     }
     public static void main(String[] args) {
-	// write your code here
+        for (Event event: getMovies()) {
+            validEvent(event);
+        }
+        for (Event event: getTheatres()) {
+            validEvent(event);
+        }
+        System.out.println("Все события корректны");
     }
 }
